@@ -1,0 +1,56 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "title": "hoge",
+      "author": "hogehoge"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "products": [
+    {
+      "name": "チョコレート",
+      "category": "お菓子",
+      "weight": 100,
+      "price": 120
+    },
+    {
+      "name": "ケーキ",
+      "category": "お菓子",
+      "weight": 400,
+      "price": 480
+    },
+    {
+      "name": "りんご",
+      "category": "フルーツ",
+      "weight": 500,
+      "price": 360
+    },
+    {
+      "name": "バナナ",
+      "category": "フルーツ",
+      "weight": 200,
+      "price": 300
+    },
+    {
+      "name": "みかん",
+      "category": "フルーツ",
+      "weight": 250,
+      "price": 180
+    }
+  ]
+}

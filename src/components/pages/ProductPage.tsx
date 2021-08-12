@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import GenericTemplate from "../templates/GenericTemplate";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -8,6 +8,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import axios from "axios";
 
 const createData = (
   name: string,
@@ -34,6 +35,22 @@ const useStyles = makeStyles({
 
 const ProductPage: React.FC = () => {
   const classes = useStyles();
+  const [newRows, setNewRows] = useState<{
+    name: string,
+    category: string,
+    weight: number,
+    price: number}>([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/products')
+    .then((results) => {
+      setNewRows(results.data);
+    })
+    .catch((error) => {
+      console.log('catch error:', error);
+    });
+  }, []);
+  console.log(newRows);
 
   return (
     <GenericTemplate title="商品ページ">
@@ -48,7 +65,7 @@ const ProductPage: React.FC = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {newRows.map((row) => (
               <TableRow>
                 <TableCell component="th" scope="row">
                   {row.name}
